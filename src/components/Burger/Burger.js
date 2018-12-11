@@ -30,14 +30,13 @@ const Burger = (props) =>{
     let keyName;
     let listArray = [];
     for(keyName in props.ingredients) {
-        console.log(`${keyName} ${props.ingredients[keyName]}`);
+        // console.log(`${keyName} ${props.ingredients[keyName]}`);
         for(let i = 0; i < props.ingredients[keyName]; i++ ){
             listArray.push(
                 <Ingredients key={keyName + i} type={keyName}/>
             );
         }
     }
-    console.log(listArray);
 
     if(listArray.length===0){
         listArray=<p>Add Some Ingredients</p>

@@ -35,9 +35,9 @@ class BurgerBuilder extends Component {
         // Set State Based On If Sum Is > 0
         this.setState({canPurchase: sum>0});
         // Some Logs
-        console.log(ingNames);
-        console.log(ingValues);
-        console.log("Total Items: ", sum);
+        // console.log(ingNames);
+        // console.log(ingValues);
+        // console.log("Total Items: ", sum);
     }
 
 
@@ -52,7 +52,7 @@ class BurgerBuilder extends Component {
         
         this.setState({ingredients: newIngredients, totalOrderPrice: newPrice});
         this.updatePurchaseState(newIngredients);
-        console.log({newIngredients, newPrice}); 
+        // console.log({newIngredients, newPrice}); 
     }
 
     removeIngredients = (type) =>{
@@ -94,7 +94,7 @@ class BurgerBuilder extends Component {
                 disabledItems[key] = false;
             }
         }
-        console.log(disabledItems);
+        // console.log(disabledItems);
 
         return(
             <React.Fragment>
