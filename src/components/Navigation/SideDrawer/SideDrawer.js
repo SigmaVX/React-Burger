@@ -5,11 +5,17 @@ import Backdrop from "../../UI/Backdrop/Backdrop";
 import style from "./SideDrawer.module.css";
 
 const SideDrawer = (props) => {
-    // checks
+    // Checks props to determine if drawer should be open or closed
+    let drawerClasses = [style.SideDrawer, style.Close];
+    if(props.openDrawer){
+        drawerClasses = [style.SideDrawer, style.Open];
+    }
+
+
     return(
         <React.Fragment>
-            <Backdrop show/>
-            <div className={style.SideDrawer}>
+            <Backdrop show={props.openDrawer} clicked={props.closeDrawer}/>
+            <div className={drawerClasses.join(" ")}>
                 <div className={style.LogoWrap}>
                     <Logo/>
                 </div>
