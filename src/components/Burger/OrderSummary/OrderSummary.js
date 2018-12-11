@@ -17,6 +17,7 @@ const OrderSummary = (props) =>{
             <ul>
                 {ingredientList}
             </ul>
+            <p>Total Price: ${props.totalPrice.toFixed(2)}</p>
             <Button clicked={props.purchaseBurger} btnType="Success">Continue To Checkout?</Button>
             <Button clicked={props.closeModal} btnType="Danger">Close</Button>
         </React.Fragment>
