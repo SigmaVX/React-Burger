@@ -39,16 +39,18 @@ const Burger = (props) =>{
     }
 
     if(listArray.length===0){
-        listArray=<p>Add Some Ingredients</p>
+        listArray=<p className={style.AddStuff}>Add Some Ingredients</p>
     }
 
 
     return(
-        <div  className={style.Burger}>
-            <Ingredients type="bread-top"/>
-            {listArray}
-            <Ingredients type="bread-bottom"/>
+        <div className={style.BurgerWrap}>
+            <div  className={style.Burger}>
+                <Ingredients type="bread-top"/>
+                {listArray}
+                <Ingredients type="bread-bottom"/>
 
+            </div>
         </div>
     );
 }

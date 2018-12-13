@@ -5,16 +5,16 @@ import BuildControl from "./BuildControl/BuildControl";
 const BuildControls = (props) =>{
 
     let controls = [
-        {lable: "Tofu Patty", type:"meat"},
-        {lable: "Bacon", type:"bacon"},
-        {lable: "Cheese", type:"cheese"},
-        {lable: "Lettuce", type:"salad"}
+        {lable: "Olive and Let Die Patty", type:"meat"},
+        {lable: "Your Bacon Me Crazy", type:"bacon"},
+        {lable: "Don't Four Cheddar 'Bout Me", type:"cheese"},
+        {lable: "If Looks Could Kale", type:"salad"}
     ];
 
 
     return(
         <div className={style.BuildControls}>
-            <h4>Total Price: ${props.price.toFixed(2)}</h4>
+            <h2>Total Price: ${props.price.toFixed(2)}</h2>
             {controls.map(item=>(
                 <BuildControl 
                     lable={item.lable} 

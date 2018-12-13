@@ -9,11 +9,11 @@ const BuildControl = (props) =>{
                <i className="fas fa-minus-circle"></i>
             </button>
 
-            <div className={style.Label}>{props.lable}</div>  
+            <h4 className={style.Label}>{props.lable}</h4>  
             
-            <div className={style.More} onClick={props.addItem} >
+            <button className={style.More} onClick={props.addItem}>
                 <i className="fas fa-plus-circle"></i>
-            </div>  
+            </button>  
         </div>
 
     );

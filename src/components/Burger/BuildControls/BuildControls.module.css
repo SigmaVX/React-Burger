@@ -1,26 +1,25 @@
 .BuildControls{
-    width: 100%;
     min-height: 50vh;
-    background-color: #cf8f2e;
+    background-color: tan;
     display: flex;
     flex-flow: column;
     align-items: center;
     box-shadow: 0 2px 1px #ccc;
     margin: auto;
     padding: 10px 0;
+    border-top: 5px solid #40a4c8;
 }
 
 .OrderButton {
-    background-color: #45a4c6;
+    background-color: #966909;
     outline: none;
     cursor: pointer;
-    border: 1px solid #966909;
+    border: 2px solid #fff;
     color: white;
     font-family: inherit;
     font-size: 1.2em;
     padding: 25px 30px;
     margin: 20px auto;
-    box-shadow: 2px 2px 2px #966909;
     border-radius: 10px;
     width: 300px;
 }

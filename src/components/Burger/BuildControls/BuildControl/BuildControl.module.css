@@ -2,16 +2,19 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 5px 0;
+    margin: 2px 0;
 }
 
 .BuildControl button {
     display: block;
+    width: 40px;
+    height: 40px;
     padding: 0px;
     margin: 0px;
     cursor: pointer;
     outline: none;
-    background-color: rgba(0,0,0,0);
+    background-color: white;
+    border-radius: 50%;
     border: none;
 }
 
@@ -23,23 +26,23 @@
 }
 
 .BuildControl .Less {  
-    color: white;
+    color: #45a4c6;
     margin-right: 20px;
     font-size: 30px;
     cursor: pointer;
 }
 
 .BuildControl .More {
-    color: white;
+    color: #45a4c6;
     margin-left: 20px;
     font-size: 30px;
     cursor: pointer;
 }
 
 .BuildControl .Less:hover, .BuildControl .Less:active {  
-    color: grey;
+    color: orange;
 }
 
 .BuildControl .More:hover,.BuildControl .More:active {
-    color: grey;
+    color: green;
 }
