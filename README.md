@@ -1,13 +1,13 @@
 # React-Burger
-All the wonders of react in a simple burger.  While burgers are great, this app primarily focuses on using a variety of react fundamentals and includes:
+All the wonders of React JS in a simple burger.  While burgers are great, this app primarily focuses on displaying a variety of React fundamentals.  This includes:
 
-* A granual breakdown of elements into components, containters, assets, and higher order components
+* A breakdown of elements into components, containers, assets, and higher order components
 
 * Conditional rendering
 
 * Lifecycle methods
 
-* A reusable modal with annimation 
+* A reusable modal with animation 
 
 * A mobile responsive side bar navigation
 
@@ -18,4 +18,10 @@ All the wonders of react in a simple burger.  While burgers are great, this app 
 * Prop type validations
 
 * Media queries
+
+* Firebase real-time database
+
+* Loading CSS spinner for dynamic components
+
+* Global error handler with Axios Interceptors
 
