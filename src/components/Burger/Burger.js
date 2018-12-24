@@ -1,8 +1,11 @@
 import React from "react";
 import style from "./Burger.module.css";
 import Ingredients from "./Ingredients/Ingredients";
+import {withRouter} from "react-router";
 
 const Burger = (props) =>{
+
+    // console.log("Burger Props: ", props);
 
     // This Function Operates in Three Stpes
     // 1-Make an array from the object Keys
@@ -55,4 +58,4 @@ const Burger = (props) =>{
     );
 }
 
-export default Burger;
+export default withRouter(Burger);

@@ -88,44 +88,64 @@ class BurgerBuilder extends Component {
     }
 
     purchaseBurger = () =>{
-        this.setState({loading: true})
+        // this.setState({loading: true})
         
-        let order = {
-            ingredients: this.state.ingredients,
-            orderPrice: this.state.price,
-            customer: {
-                name: "Tony",
-                address: {
-                    street: "123 Street",
-                    zipCode: "12345",
-                    country: "USA"
-                },
-                email: "123@123.com"
-            },
-            deliveryMethod: "fastest"
+        // let order = {
+        //     ingredients: this.state.ingredients,
+        //     orderPrice: this.state.price,
+        //     customer: {
+        //         name: "Tony",
+        //         address: {
+        //             street: "123 Street",
+        //             zipCode: "12345",
+        //             country: "USA"
+        //         },
+        //         email: "123@123.com"
+        //     },
+        //     deliveryMethod: "fastest"
+        // }
+
+        // axios.post("/orders.n", order)
+        //     .then(data =>{
+        //         this.setState({
+        //             loading: false,
+        //             showModal: false
+        //         });
+        //         console.log(data)
+        //     })
+        //     .catch(error =>{
+        //         this.setState({
+        //             loading: false,
+        //             showModal: false
+        //         });
+        //         console.log(error)
+        //     });
+
+        // console.log(this.props);
+
+        // Processes Ingredients to Send With Push
+
+        let queryParams = [];
+        for (let i in this.state.ingredients){
+            // The encode method cleans up the data so it can be sent as a URI
+            // This is not needed with one word items but is for multi word items
+            // This adds each item to the array with name = value 
+            queryParams.push(encodeURIComponent(i) + "=" + encodeURIComponent(this.state.ingredients[i]))
         }
 
-        axios.post("/orders.n", order)
-            .then(data =>{
-                this.setState({
-                    loading: false,
-                    showModal: false
-                });
-                console.log(data)
-            })
-            .catch(error =>{
-                this.setState({
-                    loading: false,
-                    showModal: false
-                });
-                console.log(error)
-            });
+        // converts array to a long string
+        const queryString = queryParams.join("&");
 
-        // alert("Burger Ordered!")
+        this.props.history.push({
+            pathname: '/checkout',
+            search: "?" + queryString
+        });
+
+        
     }
 
     render(){
-
+        // console.log("Rendering");
         // Make an object listing items that should be disabled
         let disabledItems = {...this.state.ingredients};
         for(let key in disabledItems){
