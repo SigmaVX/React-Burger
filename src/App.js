@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Layout from "./containers/Layout/Layout";
 import BurgerBuilder from "./containers/BurgerBuilder/BurgerBuilder";
 import Checkout from "./containers/Checkout/Checkout";
+import Orders from "./containers/Orders/Orders";
 import {Switch, Route, BrowserRouter} from "react-router-dom";
 
 
@@ -9,12 +10,12 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <div >
+        <div>
           <Layout>
             <Switch>
-              <Route path="/checkout" exact component={Checkout}/>
+              <Route path="/checkout" component={Checkout}/>
+              <Route path="/orders" component={Orders}/>
               <Route path="/" exact component={BurgerBuilder}/>
-              <Checkout/>
             </Switch>
           </Layout>
         </div>
@@ -25,4 +26,4 @@ class App extends Component {
 
 export default App;
 
-// https://react-buger-c3d8d.firebaseio.com/
+// Firebase URL: https://react-buger-c3d8d.firebaseio.com/

@@ -6,37 +6,39 @@ import {Route} from "react-router-dom";
 class Checkout extends Component{
 
     state={
-        ingredients: {
-            salad: 1,
-            meat: 1,
-            cheese: 1,
-            bacon: 1
-        }
+        ingredients: null,
+        totalPrice: 0
     }
 
-    componentDidMount(){
-        console.log("Running Component Did Mount In Checkout.js")
+    componentWillMount(){
         // Extracts The Search Terms From The URL
         // URLSearchParams Unlocks Methods To Help Process The Search String
         const queryItems = new URLSearchParams(this.props.location.search);
         const ingredients ={};
+        let price = 0;
         // Entries method makes arrays based on the object
         for (let i of queryItems.entries()){
             // Data comes in as like ["cheese", "1"]
             // Iterator is each property of the object
-            // Setting key name i[0] and value i[1] from arrays; 
-            // A + is added to convert the string to a number data type
-            ingredients[i[0]] = +i[1];
+            if(i[0] === "price"){
+                // Grab price during loop
+                price = i[1];
+            } else {
+                // Setting key name i[0] and value i[1] from arrays; 
+                // A + is added to convert the string to a number data type
+                ingredients[i[0]] = +i[1];
+            }
+
         }
-        this.setState({ingredients: ingredients});       
+        this.setState({ingredients: ingredients, totalPrice: price});     
     }
+    
 
     cancelCheckout=()=>{
         this.props.history.goBack();
     }
 
-    continueCheckout=(event)=>{
-        event.preventDefault();
+    continueCheckout=()=>{
         this.props.history.replace("/checkout/contact-data");
     }
     
@@ -50,7 +52,10 @@ class Checkout extends Component{
                     checkoutCancel={this.cancelCheckout}
                     checkoutContinue={this.continueCheckout}
                 />
-                <Route path={"/checkout/contact-data"} render={()=><ContactData ingredients={this.state.ingredients}/>}/>
+
+                {/* Props Passed So Contact Data Has Access To Router Hisotry  */}
+                <Route path={"/checkout/contact-data"} render={(props)=><ContactData price={this.state.totalPrice} ingredients={this.state.ingredients} {...props}/>}/>
+            
             </div>
         );
     }
