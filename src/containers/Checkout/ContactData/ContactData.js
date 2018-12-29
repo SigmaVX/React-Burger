@@ -84,7 +84,7 @@ class ContactData extends Component{
                 touched: false
             },
             deliveryMethod: {
-                value: "",
+                value: "fastest",
                 elementType: "select",
                 elementConfig: {
                     options: [
@@ -99,6 +99,7 @@ class ContactData extends Component{
                 touched: false
             }
         },
+        formIsValid: false,
         loading: false
     }
 
@@ -154,8 +155,19 @@ class ContactData extends Component{
         updatedItem.touched = true;
         // Update Value Of Copied State With Copy Object
         updatedForm[id] = updatedItem;
+
+        // Loop To Verify Form Is Valid
+        let formIsValid = true;
+        for (let elementItem in updatedForm){
+            if(updatedForm[elementItem].validation.required === true){
+                if(updatedForm[elementItem].validation.valid === false){
+                    formIsValid = false;
+                }
+            }
+        }
+
         // Set State With The Copy Of State
-        this.setState({orderForm : updatedForm});
+        this.setState({orderForm : updatedForm, formIsValid : formIsValid});
     }
 
     validationCheck = (value, rules) =>{
@@ -205,7 +217,7 @@ class ContactData extends Component{
                         changed={(event)=>this.inputChangeHandler(event, element.id)}
                     />
                 ))}
-                <Button btnType="Success">Order</Button>
+                <Button btnType="Success" disabled={!this.state.formIsValid}>Order</Button>
             </form>
         );
         if(this.state.loading){
